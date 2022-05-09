@@ -11,8 +11,9 @@ if (hasDrivingsLicense) console.log('i can drive');
 const interface = 500; // // with 'use strict' will give an order
 */
 
-// Functions
+// Functions declarations
 
+/*
 function logger() {
     console.log('logger');
 }
@@ -30,4 +31,18 @@ function fruitProcessor(apples, oranges) {
 console.log(
     fruitProcessor(1, 1),
     fruitProcessor(5, 1)
-);
+);*/
+
+// Function Declarations vs. Expressions
+
+//Function Declarations
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+console.log(calcAge1(1991));
+
+//Function Expressions
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+console.log(calcAge2(1991));
