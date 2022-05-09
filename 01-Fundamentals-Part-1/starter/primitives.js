@@ -1,3 +1,4 @@
+
 // 6 types (number, string, boolean, undefined, null, bigInt)
 /* dynamic data typing much like PHP */
 
