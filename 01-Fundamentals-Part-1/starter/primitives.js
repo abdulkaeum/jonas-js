@@ -45,3 +45,4 @@ console.log(typeof year, year);
 
 // error in the typeof operator
 console.log(typeof null);
+
