@@ -238,6 +238,7 @@ for (let i = 1; i <= 10; i++) {
 
 // Looping Arrays
 
+/*
 const abdulArray = [
     'Abdul',
     'Kaeum',
@@ -261,4 +262,27 @@ const ages = [];
 for (let i = 0; i < years.length; i++) {
     ages.push(2037 - years[i]);
 }
-console.log(ages);
+console.log(ages);*/
+
+// Looping arrays backwards and loops within loop
+
+const abdulArray = [
+    'Abdul',
+    'Kaeum',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Steven', 'Peter'],
+    true
+];
+
+for (let i = abdulArray.length - 1; i >= 0; i--) {
+    console.log(i, abdulArray[i]);
+}
+
+for (let excercise = 1; excercise < 4; excercise++) {
+    console.log(`---------excercise ${excercise}`);
+
+    for (let i = 1; i < 5; i++){
+        console.log(`--rep ${i}`);
+    }
+}
