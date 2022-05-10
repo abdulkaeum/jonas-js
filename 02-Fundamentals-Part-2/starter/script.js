@@ -300,6 +300,7 @@ while (dice !== 6){
 
 // challenge
 
+/*
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 let tips = [];
 let totals = [];
@@ -312,4 +313,17 @@ for (let i = 0; i < bills.length; i++) {
     totals.push(bills[i] + tip);
 }
 console.log(tips);
-console.log(totals);
+console.log(totals);*/
+
+// challenge
+
+const data = [17, 21, 23];
+const printForecast = function (arr) {
+    let str = '';
+    for (let i = 0; i < arr.length; i++) {
+        str += `${arr[i]}C in ${i + 1} days... `;
+    }
+    console.log('...' + str);
+}
+
+printForecast(data);
