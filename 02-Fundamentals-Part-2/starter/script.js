@@ -86,7 +86,7 @@ console.log(fruitPro(2, 3));*/
 
 // Arrays
 
-const friends = ['Michael', 'Steven', 'Peter'];
+/*const friends = ['Michael', 'Steven', 'Peter'];
 console.log(friends);
 console.log(friends[0]);
 console.log(friends[1]);
@@ -116,4 +116,4 @@ const ages = [
     calcAge(years[1]),
     calcAge(years[2])
 ];
-console.log(ages);
+console.log(ages);*/
