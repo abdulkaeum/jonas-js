@@ -160,7 +160,6 @@ const abdulArray = [
 ];
 
 // use objects to assign keys to data
-
 const abdul = {
     fName: 'Abdul',
     lName: 'Kaeum',
@@ -168,3 +167,24 @@ const abdul = {
     job: 'teacher',
     friends: ['Michael', 'Steven', 'Peter']
 };
+
+// retrieve object values (dot vs bracket notation)
+console.log(abdul);
+console.log(abdul.fName);
+console.log(abdul['fName']);
+const keyName = 'Name';
+console.log(abdul['f' + keyName], abdul['l' + keyName]);
+console.log(`${abdul.fName} has ${abdul.friends.length} friends and his best friend is ${abdul.friends[0]}`);
+
+const str = prompt('enter');
+if (abdul[str]) {
+    console.log(abdul[str]);
+} else {
+    console.log('no');
+}
+
+// add to object
+abdul.job = 'F1 Racer'
+abdul['fname'] = 'Hamilton';
+abdul.newPropLocation = 'Brazil';
+console.log(abdul);
