@@ -120,7 +120,7 @@ console.log(ages);*/
 
 // Array Operations (Methods)
 
-const friends = ['Michael', 'Steven', 'Peter'];
+/*const friends = ['Michael', 'Steven', 'Peter'];
 
 // add elements
 const jay = friends.push('Jay');
@@ -145,6 +145,26 @@ console.log(friends.includes('Bob')); // false
 
 if (friends.includes('Peter')) {
     console.log('yes');
-}
+}*/
 
 
+// Objects
+
+// JS does not support associative arrays!
+const abdulArray = [
+    'Abdul',
+    'Kaeum',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Steven', 'Peter']
+];
+
+// use objects to assign keys to data
+
+const abdul = {
+    fName: 'Abdul',
+    lName: 'Kaeum',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Steven', 'Peter']
+};
