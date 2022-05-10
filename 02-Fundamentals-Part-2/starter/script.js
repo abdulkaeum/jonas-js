@@ -231,6 +231,34 @@ console.log(abdulStats.bmi);*/
 
 // for loop
 
+/*
 for (let i = 1; i <= 10; i++) {
     console.log(`hello world ${i}`);
+}*/
+
+// Looping Arrays
+
+const abdulArray = [
+    'Abdul',
+    'Kaeum',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Steven', 'Peter']
+];
+
+const types = [];
+
+for (let i = 0; i < abdulArray.length; i++) {
+    console.log(abdulArray[i], typeof abdulArray[i]);
+    if(typeof abdulArray[i] !== 'string') continue;
+    types.push(typeof abdulArray[i]);
 }
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
