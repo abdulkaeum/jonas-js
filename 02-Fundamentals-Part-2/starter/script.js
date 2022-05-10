@@ -117,3 +117,34 @@ const ages = [
     calcAge(years[2])
 ];
 console.log(ages);*/
+
+// Array Operations (Methods)
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// add elements
+const jay = friends.push('Jay');
+console.log(friends, jay);
+friends.unshift('John');
+console.log(friends);
+
+// remove elements
+
+const popped = friends.pop();
+console.log(friends);
+console.log(popped);
+friends.shift();
+console.log(friends);
+
+// check indexes
+
+console.log(friends.indexOf('Steven')); // index 1
+console.log(friends.indexOf('Bob')); // -1 Bob does not exist
+console.log(friends.includes('Steven')); // true
+console.log(friends.includes('Bob')); // false
+
+if (friends.includes('Peter')) {
+    console.log('yes');
+}
+
+
