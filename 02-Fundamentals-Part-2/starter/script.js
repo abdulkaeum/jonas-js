@@ -190,7 +190,7 @@ abdul['fname'] = 'Hamilton';
 abdul.newPropLocation = 'Brazil';
 console.log(abdul);*/
 
-const abdul = {
+/*const abdul = {
     fName: 'Abdul',
     lName: 'Kaeum',
     age: 1991,
@@ -227,4 +227,10 @@ const abdulStats = {
 };
 
 abdulStats.calcBmi();
-console.log(abdulStats.bmi);
+console.log(abdulStats.bmi);*/
+
+// for loop
+
+for (let i = 1; i <= 10; i++) {
+    console.log(`hello world ${i}`);
+}
