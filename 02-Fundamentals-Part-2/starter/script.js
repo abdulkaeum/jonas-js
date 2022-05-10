@@ -74,7 +74,7 @@ console.log(test());*/
 
 // Functions Calling Other Functions
 
-function cutPieces(fruit){
+/*function cutPieces(fruit){
     return fruit * 4;
 }
 
@@ -82,4 +82,38 @@ function fruitPro(apples, oranges) {
     const applePieces = cutPieces(apples);
     return `${apples} - ${oranges} - ${applePieces}`;
 }
-console.log(fruitPro(2, 3));
+console.log(fruitPro(2, 3));*/
+
+// Arrays
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[2]);
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+const fName = 'Abdul';
+const abdul = [fName, 'Kaeum', 2037 - 1991, friends];
+console.log(abdul);
+console.log(abdul.length);
+
+function calcAge(birthYear) {
+    return 2037 - birthYear;
+}
+const years = [1990, 1967, 2002];
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[2]);
+console.log(age1, age2, age3);
+
+const ages = [
+    calcAge(years[0]),
+    calcAge(years[1]),
+    calcAge(years[2])
+];
+console.log(ages);
