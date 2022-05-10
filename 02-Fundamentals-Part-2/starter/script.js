@@ -151,6 +151,7 @@ if (friends.includes('Peter')) {
 // Objects
 
 // JS does not support associative arrays!
+/*
 const abdulArray = [
     'Abdul',
     'Kaeum',
@@ -187,4 +188,32 @@ if (abdul[str]) {
 abdul.job = 'F1 Racer'
 abdul['fname'] = 'Hamilton';
 abdul.newPropLocation = 'Brazil';
-console.log(abdul);
+console.log(abdul);*/
+
+const abdul = {
+    fName: 'Abdul',
+    lName: 'Kaeum',
+    age: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Steven', 'Peter'],
+    license: true,
+    calAge1: function (year) {
+        return 2037 - year;
+    },
+    calAge2: function () {
+        return 2037 - this.age;
+    },
+    calAge3: function () {
+        this.age = 2037 - this.age;
+        return this.age;
+    },
+    info: function () {
+        return `${this.fName} is a ${this.calAge3()} year old ${this.job}, and has ${this.license ? 'a' : 'no' } license`;
+    }
+}
+
+console.log(abdul.calAge1(abdul.age));
+console.log(abdul.calAge2());
+//console.log(abdul.calAge3());
+console.log(abdul.age);
+console.log(abdul.info())
