@@ -208,7 +208,7 @@ const abdul = {
         return this.age;
     },
     info: function () {
-        return `${this.fName} is a ${this.calAge3()} year old ${this.job}, and has ${this.license ? 'a' : 'no' } license`;
+        return `${this.fName} is a ${this.calAge3()} year old ${this.job}, and has ${this.license ? 'a' : 'no'} license`;
     }
 }
 
@@ -217,3 +217,14 @@ console.log(abdul.calAge2());
 //console.log(abdul.calAge3());
 console.log(abdul.age);
 console.log(abdul.info())
+
+const abdulStats = {
+    name: 'Abdul Kaeum',
+    height: 1.69,
+    mass: 78,
+    calcBmi: function () {return this.bmi = this.mass / this.height ** 2;},
+    //calcBmi: () => this.bmi = this.mass / this.height ** 2
+};
+
+abdulStats.calcBmi();
+console.log(abdulStats.bmi);
