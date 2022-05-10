@@ -266,6 +266,7 @@ console.log(ages);*/
 
 // Looping arrays backwards and loops within loop
 
+/*
 const abdulArray = [
     'Abdul',
     'Kaeum',
@@ -285,4 +286,13 @@ for (let excercise = 1; excercise < 4; excercise++) {
     for (let i = 1; i < 5; i++){
         console.log(`--rep ${i}`);
     }
+}*/
+
+// while loop
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6){
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log(`Loop is about to end...`);
 }
