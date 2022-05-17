@@ -11,14 +11,6 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  order: function (starterIndex, mainIndex){
-      return [
-          this.starterMenu[starterIndex],
-          this.mainMenu[mainIndex]
-      ];
-  },
-
   openingHours: {
     thu: {
       open: 12,
@@ -33,7 +25,56 @@ const restaurant = {
       close: 24,
     },
   },
+  order: function (starterIndex, mainIndex){
+    return [
+      this.starterMenu[starterIndex],
+      this.mainMenu[mainIndex]
+    ];
+  },
+  orderDelvery: function ({mainIndex = 1, time, address, startIndex}) {
+    console.log(`order ${time}, ${address}, ${mainIndex}, ${startIndex},`);
+  },
 };
+
+// call object method and pass in 'one' object
+restaurant.orderDelvery({
+  time: '22:30',
+  address: '6 Leo rd',
+  mainIndex: 2,
+  startIndex: 2
+});
+
+// Destructuring objects {}
+
+// using the property names
+const {name, openingHours, categories} = restaurant;
+console.log('using the property names', name, openingHours, categories); //
+
+// renaming the property names to own variables
+const {name: mYname, location: mYlocation} = restaurant;
+console.log('rename property names', mYname, mYlocation); //
+
+// default values
+const {menu = [], starterMenu: starters = []} = restaurant;
+console.log('menu does not exist', menu, starters);  // [] 4['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+
+// mutating variables
+let a = 111;
+let b = 999;
+const obj = {a: 23, b: 7, c: 14};
+// {a, b} = obj; // error
+({a, b} = obj);
+console.log(a, b); // 23 7
+
+// nested objects
+const { fri } = restaurant.openingHours;
+const { fri: { open, close } } = restaurant.openingHours;
+console.log(fri); // {open: 11, close: 23}
+console.log(open, close); // 11, 23
+
+
+/*
+//Destructuring Arrays []
 
 const arr = [1, 2, 3];
 const a = arr[0];
@@ -74,3 +115,4 @@ console.log('unknown Destructuring', i, j, k) // 3 4 undefined
 // set default values
 const [l = 1, m = 2, n = 3] = [3];
 console.log('unknown Destructuring', l, m, n) // 3 2 3
+*/
