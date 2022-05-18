@@ -102,6 +102,25 @@ add(...x); // 23, 5, 7 // returns [23, 5, 7] by the packing
 // one (4)['two', 'three', 'four', 'five']
 restaurant.orderPizza('one', 'two', 'three', 'four', 'five');
 
+// Short Circuiting (||)
+// you can use ANY data type, they can return ANY data type
+// short-circuiting: the first [truthy] value is returned
+console.log(3 || 'Abdul'); // 3
+console.log('' || 'Abdul'); // Abdul
+console.log(true || 0); // true
+console.log(undefined || null); // null
+console.log(undefined || 0 || '' || 'hello' || 23 || null); // hello
+
+restaurant.numGuests = 23;
+// instead of restaurant.numGuests ? restaurant.numGuests : 10
+const guests = restaurant.numGuests || 10;
+console.log(guests); // 23
+
+// Short Circuiting (&&)
+// short Circuiting using the && operator does the opposite: the first [falsey] value is returned
+console.log(0 && 'Abdul'); // 0
+console.log(7 && 'Abdul'); // Abdul
+
 /*
 // call object method and pass in 'one' object
 restaurant.orderDelvery({
