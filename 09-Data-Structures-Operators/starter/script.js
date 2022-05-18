@@ -36,6 +36,9 @@ const restaurant = {
     },
     orderPasta: function (ing1, ing2, ing3) {
         console.log('ings: ', ing1, ing2, ing3);
+    },
+    orderPizza: function (mainIndg, ...otherIndg) { // otherIndg has been packed
+        console.log(mainIndg, otherIndg);
     }
 };
 
@@ -84,6 +87,20 @@ const restCopy = {...restaurant};
 restCopy.name = 'Only Italiano';
 console.log(restaurant.name); // Classico Italiano
 console.log(restCopy.name); // Only Italiano
+
+// Rest Pattern and Parameters = the opposite to a spread
+const add = function (...numbers) { // packing
+    console.log(numbers); // array of numbers
+}
+add(1, 2, 2); // [1, 2, 2]
+add(2, 3, 4, 5, 6, 6); // [2, 3, 4, 5, 6, 6]
+
+// un-packing
+const x = [23, 5, 7];
+add(...x); // 23, 5, 7 // returns [23, 5, 7] by the packing
+
+// one (4)['two', 'three', 'four', 'five']
+restaurant.orderPizza('one', 'two', 'three', 'four', 'five');
 
 /*
 // call object method and pass in 'one' object
