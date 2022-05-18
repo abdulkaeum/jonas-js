@@ -131,6 +131,28 @@ console.log(guests1); // 10 / should be 0
 const guests2 = restaurant.numGuests ?? 10;
 console.log(guests2); // 0
 
+// New Logical Assignment Operators
+const rest1 = {
+    name: 'name1',
+    numGuests: 20,
+};
+const rest2 = {
+    name: 'name2',
+    location: 'UK',
+};
+
+// rest1.numGuests = rest1.numGuests || 10; // 20
+// rest2.numGuests = rest2.numGuests || 10; // 10
+// OR Assignment Operator: assigns a value to a variable if that variable is [falsy]
+rest1.numGuests ||= 10; // 20
+rest2.numGuests ||= 10; // 10 (rest2.numGuests is falsy)
+
+// but if rest1.numGuests was 0 guests then you don't want to assign the default value of 10
+// instead of ||= we should use the The Nullish Coalescing Assignment Operator
+rest2.numGuests ??= 10
+
+// we also have the &&= // assigns a value to a variable if it's [truthy]
+rest2.location &&= '<NA>';
 
 /*
 // call object method and pass in 'one' object
