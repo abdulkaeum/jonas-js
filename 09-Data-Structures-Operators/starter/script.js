@@ -2,40 +2,90 @@
 
 // Data needed for a later exercise
 const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0, // Open 24 hours
+            close: 24,
+        },
     },
-    fri: {
-      open: 11,
-      close: 23,
+    order: function (starterIndex, mainIndex) {
+        return [
+            this.starterMenu[starterIndex],
+            this.mainMenu[mainIndex]
+        ];
     },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
+    orderDelvery: function ({mainIndex = 1, time, address, startIndex}) {
+        console.log(`order ${time}, ${address}, ${mainIndex}, ${startIndex},`);
     },
-  },
-  order: function (starterIndex, mainIndex){
-    return [
-      this.starterMenu[starterIndex],
-      this.mainMenu[mainIndex]
-    ];
-  },
-  orderDelvery: function ({mainIndex = 1, time, address, startIndex}) {
-    console.log(`order ${time}, ${address}, ${mainIndex}, ${startIndex},`);
-  },
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log('ings: ', ing1, ing2, ing3);
+    }
 };
 
+// spread operator = to expand an array to all it's elements
+// used to pass args into function or building new array
+// vs Destructuring / spread does not create variables and spreads out all elements of an array
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 5, 6, 7];
+console.log(arr2); // 6)[1, 2, 3, 5, 6, 7]
+console.log(...arr2); // 1, 2, 3, 5, 6, 7
+
+// building new array with added element
+const newMenu = [...restaurant.mainMenu, 'food'];
+console.log(newMenu); // (4)['Pizza', 'Pasta', 'Risotto', 'food']
+
+// copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy); // ['Pizza', 'Pasta', 'Risotto']
+
+// combine array
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu); // ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad', 'Pizza', 'Pasta', 'Risotto']
+
+// the spread works on all iterable
+const str = 'Jonas';
+const letters = [...str, ' ', 's.'];
+console.log(letters); // ['J', 'o', 'n', 'a', 's', ' ', 's.']
+console.log(...str); // J o n a s
+
+// passing spread into a function
+const ingredients = [
+    //prompt('Enter pasta 1'),
+    //prompt('Enter pasta 2'),
+    //prompt('Enter pasta 3')
+];
+console.log(ingredients); // ['a', 'b', 'c']
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // ings:  1 2 3
+restaurant.orderPasta(...ingredients); // 'a', 'b', 'c' / ings:  1 2 3
+
+// add to object
+const newRest = {foundYear: '2022', ...restaurant, founder: 'Abdul'};
+console.log(newRest);
+
+// copy shallow
+const restCopy = {...restaurant};
+restCopy.name = 'Only Italiano';
+console.log(restaurant.name); // Classico Italiano
+console.log(restCopy.name); // Only Italiano
+
+/*
 // call object method and pass in 'one' object
 restaurant.orderDelvery({
   time: '22:30',
@@ -70,7 +120,7 @@ console.log(a, b); // 23 7
 const { fri } = restaurant.openingHours;
 const { fri: { open, close } } = restaurant.openingHours;
 console.log(fri); // {open: 11, close: 23}
-console.log(open, close); // 11, 23
+console.log(open, close); // 11, 23*/
 
 
 /*
