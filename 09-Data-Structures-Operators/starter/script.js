@@ -121,6 +121,17 @@ console.log(guests); // 23
 console.log(0 && 'Abdul'); // 0
 console.log(7 && 'Abdul'); // Abdul
 
+// The Nullish Coalescing Operator (??)
+// Nullish = null and undefined (NOT 0 OR '')
+restaurant.numGuests = 0; // 0 is a not a null or undefined value
+const guests1 = restaurant.numGuests || 10;
+console.log(guests1); // 10 / should be 0
+
+//if left operands is null and undefined return the right unless otherwise
+const guests2 = restaurant.numGuests ?? 10;
+console.log(guests2); // 0
+
+
 /*
 // call object method and pass in 'one' object
 restaurant.orderDelvery({
