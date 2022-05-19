@@ -1,6 +1,4 @@
-
-
-// spread operator = to expand an array to all it's elements
+console.log(`spread operator = to expand an array to all it's elements`)
 // used to pass args into function or building new array
 // vs Destructuring / spread does not create variables and spreads out all elements of an array
 const arr1 = [1, 2, 3];
@@ -193,3 +191,28 @@ console.log('unknown Destructuring', i, j, k) // 3 4 undefined
 const [l = 1, m = 2, n = 3] = [3];
 console.log('unknown Destructuring', l, m, n) // 3 2 3
 */
+
+console.log(`####: Sets = always unique values`)
+const orderSet = new Set(['one', 'two', 'two', 'three', 'four', 'one']);
+console.log(orderSet); // Set(4) {'one', 'two', 'three', 'four'}
+console.log(new Set('Abdul')) // Set(5) {'A', 'b', 'd', 'u', 'l'}
+console.log(orderSet.size) // 4
+console.log(orderSet.has('one')); // true
+orderSet.add('bread');
+orderSet.add('bread');
+orderSet.delete('three');
+console.log(orderSet); // Set(5) {'one', 'two', 'four', 'bread'}
+// Sets do not have indexes so we can't retrieve a part of it i.e orderSet[0] won't work
+// instead we use the .has() method
+// use an array instead if you need to retrieve data
+// .clear will clear the entire set
+for (const order of orderSet)  console.log(order);
+
+// use case - main use case of sets is to remove dups from arrays
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+// Set(3) {'Waiter', 'Chef', 'Manager'}
+// (3) ['Waiter', 'Chef', 'Manager'] after using the spread
+console.log(new Set('Abdul')); // Set(5) {'A', 'b', 'd', 'u', 'l'}
+
