@@ -248,3 +248,8 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); // w
 rest.delete('name')
 console.log(rest.size) // the number of items
 rest.clear() // Map(0) {}
+
+console.log(`####: Which Data Structure to Use?`)
+// simple list  = [arrays] or sets - just values but can manipulate data with their methods
+// key value pairs = [objects] / maps - object have functions/this and maps have different data types as keys
+
