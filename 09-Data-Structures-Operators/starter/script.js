@@ -216,3 +216,35 @@ console.log(staffUnique);
 // (3) ['Waiter', 'Chef', 'Manager'] after using the spread
 console.log(new Set('Abdul')); // Set(5) {'A', 'b', 'd', 'u', 'l'}
 
+console.log(`####: Maps = more useful than sets, map values to keys`)
+// data is stored with key to values
+// maps can have any data types as their keys
+
+const rest = new Map();
+// fill the map
+rest.set('name', 'UK');
+rest.set(1, 'country');
+rest
+    .set(2, [1,2,3])
+    .set(true, ['a','b','c']);
+
+// check the map
+console.log(rest); // {'name' => 'UK', 1 => 'country', 2 => Array(3), true => Array(3)}
+console.log(rest.get('name')); // UK
+console.log(rest.get(true)); //  ['a','b','c']
+console.log(rest.has('name')) // true
+
+// the use of having booleans as keys
+rest
+    .set('open', 11)
+    .set('close', 13)
+    .set(true, 'we are open')
+    .set(false, 'we are closed');
+const time = 21;
+// condition will return a boolean
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); // we are closed
+
+// manipulate
+rest.delete('name')
+console.log(rest.size) // the number of items
+rest.clear() // Map(0) {}
