@@ -56,11 +56,11 @@ console.log('#### - First-Class and Higher-Order Functions');
 // Higher-Order Functions = receives a function as an argument or returns a new function
 
 // Higher-Order Functions - A Function Accepting A Callback Function:
-const oneWord = function (str){
+const oneWord = function (str) {
     return str.replace(/ /g, '').toLowerCase() // javascriptisnotthebest!
 };
 
-const upperFirstWord = function (str){
+const upperFirstWord = function (str) {
     const [fWord, ...others] = str.split(' ');
     return [fWord.toUpperCase(), ...others].join(' ');
 };
@@ -70,5 +70,27 @@ const transformer = function (str, fn) {
     console.log(`Transform string: ${fn(str)}`); // Transform string: JAVASCRIPT is not the best!
     console.log(`Transform by: ${fn.name}`); // Transform string: upperFirstWord
 }
-transformer('JavaScript is not the best!', upperFirstWord)
+transformer('JavaScript is not the best!', upperFirstWord);
 transformer('JavaScript is not the best!', oneWord);
+
+console.log('#### - Functions Returning Functions');
+
+const greet = function (greeting) {
+    // at this point a function is returned not the value
+    return function (name) {
+        console.log(`${greeting} ${name}`);
+    };
+};
+
+// greeterHey is now a function
+const greeterHey = greet('hey');
+greeterHey('Abdul'); // hey Abdul
+greeterHey('Apple'); // hey Apple
+console.log(greet('hello')); // ƒ (name) {console.log(`${greeting} ${name}`);}
+greet('hello')('abdul'); // hello abdul
+
+const gA = (gMsg) => {
+    return (gName) => console.log(`${gMsg} ${gName}`);
+}
+
+
