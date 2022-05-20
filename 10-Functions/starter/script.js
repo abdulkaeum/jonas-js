@@ -93,4 +93,46 @@ const gA = (gMsg) => {
     return (gName) => console.log(`${gMsg} ${gName}`);
 }
 
+console.log('#### - The call and apply Methods');
+// used to attached method onto objects
+
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    book(flightName, name) {
+        console.log(
+            `${name} booked ${this.airline} ${this.iataCode}${flightName}`
+        );
+        this.bookings.push({
+            flight: `${this.iataCode}${flightName}`,
+            name,
+        })
+    }
+}
+
+lufthansa.book(239, 'Abdul Kaeum'); //Abdul Kaeum booked Lufthansa LH239
+lufthansa.book(635, 'blah blah');   //blah blah   booked Lufthansa LH635
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'LH',
+    bookings: []
+}
+
+// so we can use the method with other objects
+const book = lufthansa.book;
+
+// The Call method
+// use the book (now function, from the method within lufthansa) on eurowings
+// this way the 'this' keyword will be dynamically used on the eurowings objects
+book.call(eurowings, 23, 'name name');
+
+book.call(lufthansa, 24, 'name name');
+
+// Apply - params should be an array - OLD WAY
+book.apply(lufthansa, [25, 'name name']);
+const data = [26, 'name name'];
+book.apply(lufthansa, ...data);
+
 
