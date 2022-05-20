@@ -55,7 +55,6 @@ console.log('#### - First-Class and Higher-Order Functions');
 // Higher-Order Functions = the parent function
 // Higher-Order Functions = receives a function as an argument or returns a new function
 
-// Higher-Order Functions - A Function Accepting A Callback Function:
 const oneWord = function (str) {
     return str.replace(/ /g, '').toLowerCase() // javascriptisnotthebest!
 };
@@ -64,7 +63,7 @@ const upperFirstWord = function (str) {
     const [fWord, ...others] = str.split(' ');
     return [fWord.toUpperCase(), ...others].join(' ');
 };
-// the higher order func
+// Higher-Order Functions - A Function Accepting A Callback Function: fn
 const transformer = function (str, fn) {
     console.log(`Original string: ${str}`); // Original string: JavaScript is not the best!
     console.log(`Transform string: ${fn(str)}`); // Transform string: JAVASCRIPT is not the best!
@@ -94,7 +93,8 @@ const gA = (gMsg) => {
 }
 
 console.log('#### - The call and apply Methods');
-// used to attached method onto objects
+// in this scenario: why we will need to set the 'this' keyword manually
+// used to attach method onto objects so the 'this' keyword can be set manually
 
 const lufthansa = {
     airline: 'Lufthansa',
@@ -120,19 +120,30 @@ const eurowings = {
     bookings: []
 }
 
-// so we can use the method with other objects
+// **We can use methods from one object with other objects
+// book is now just a regular function
 const book = lufthansa.book;
 
-// The Call method
+// ##### The Call method
 // use the book (now function, from the method within lufthansa) on eurowings
 // this way the 'this' keyword will be dynamically used on the eurowings objects
-book.call(eurowings, 23, 'name name');
+book.call(eurowings, 23, 'name name'); // CALL THE BOOK METHOD AS IF IT WAS ON THE eurowings OBJECT
 
-book.call(lufthansa, 24, 'name name');
+book.call(lufthansa, 24, 'name name'); // can do this is too but not really
 
-// Apply - params should be an array - OLD WAY
+// ##### The Apply method - params should be an array - OLD WAY
 book.apply(lufthansa, [25, 'name name']);
 const data = [26, 'name name'];
 book.apply(lufthansa, ...data);
 
+console.log('#### - The bind Method');
+// Like the call method, it allows us to manually set the 'this' keyword for any function call.
+// The difference: bind does not automatically call the function
+// Instead it returns a new function where the 'this' keyword is bound
+// So it's set to whatever value we pass into bind i.e bookEW, bookLH
 
+const bookEW = book.bind(eurowings);
+bookEW(36, 'NAME NAME');
+
+const bookLH = book.bind(lufthansa);
+bookLH(45, 'NAME NAME')
